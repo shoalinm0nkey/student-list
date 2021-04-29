@@ -1,22 +1,26 @@
 <h3>Home</h3>
 
-<ul>
-    <li>
-        larry
-    </li>
-    <li>
-        curly
-    </li>
-    <li>
-        moe
-    </li>
+<h4
+    *ngIf="students.length === 0"
+>
+    No Student Data
+</h4>
 
-    <br>
-    <br>
-
-    <button
-        (click)="addStudent()"
+<ul
+    *ngIf="students.length > 0"
+>
+    <li
+        *ngFor="let s of students"
     >
-        add new student
-    </button>
+        {{ s.name }} ({{ s.degreeProgram }})
+    </li>
 </ul>
+
+<br>
+<br>
+
+<button
+    (click)="addStudent()"
+>
+    add new student
+</button>
